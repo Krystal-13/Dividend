@@ -40,9 +40,8 @@ public class MemberService implements UserDetailsService {
         }
 
         member.setPassword(this.passwordEncoder.encode(member.getPassword()));
-        MemberEntity result = this.memberRepository.save(member.toEntity());
 
-        return result;
+        return this.memberRepository.save(member.toEntity());
     }
 
     public MemberEntity authenticate(Auth.SignIn member) {
